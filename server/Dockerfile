@@ -1,0 +1,7 @@
+FROM node:10.21.0-alpine
+WORKDIR '/app'
+COPY ./package.json ./
+RUN npm install
+COPY . .
+RUN dbt init
+CMD ["npm","run","dev"]
